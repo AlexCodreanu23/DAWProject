@@ -29,7 +29,7 @@ public class GameDeveloperController : ControllerBase
         return CreatedAtAction("GetGameDeveloper", new { id = gameDeveloper.GameDeveloperId }, gameDeveloper);
     }
 
-    // DELETE: api/GameDeveloper/5
+    // DELETE: api/GameDeveloper
     [HttpDelete("{id}")]
     public async Task<ActionResult<GameDeveloper>> DeleteGameDeveloper(int id)
     {
@@ -45,7 +45,7 @@ public class GameDeveloperController : ControllerBase
         return gameDeveloper;
     }
 
-    // GET: api/GameDeveloper/Games/5
+    // GET: api/GameDeveloper/Games
     [HttpGet("Games/{developerId}")]
     public async Task<ActionResult<IEnumerable<Game>>> GetGamesByDeveloper(int developerId)
     {
@@ -55,7 +55,7 @@ public class GameDeveloperController : ControllerBase
             .ToListAsync();
     }
 
-    // GET: api/GameDeveloper/Developers/5
+    // GET: api/GameDeveloper/Developers
     [HttpGet("Developers/{gameId}")]
     public async Task<ActionResult<IEnumerable<Developers>>> GetDevelopersByGame(int gameId)
     {
@@ -64,6 +64,4 @@ public class GameDeveloperController : ControllerBase
             .Select(gd => gd.Developers)
             .ToListAsync();
     }
-
-    // Other CRUD operations could be added here as needed...
 }
