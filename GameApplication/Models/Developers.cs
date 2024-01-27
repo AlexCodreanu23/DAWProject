@@ -22,6 +22,8 @@ namespace GameApplication.Models
         [Range(0, int.MaxValue)]
         public int Salary { get; set; }
 
+        public ICollection<GameDeveloper> GameDevelopers { get; set; }
+
         public Developers()
         {
 

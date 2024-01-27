@@ -15,6 +15,8 @@ namespace GameApplication.Models
 
         public DateTime ReleaseDate { get; set; }
 
+        public ICollection<GameDeveloper> GameDevelopers { get; set; }
+
         public Game()
         {
 

@@ -1,6 +1,5 @@
 ﻿using GameApplication.Models;
 using Microsoft.EntityFrameworkCore;
-using GameApplication.Models;
 
 namespace GameApplication.Data
 {
@@ -16,10 +15,20 @@ namespace GameApplication.Data
         public DbSet<Reviews> Reviews { get; set; }
         public DbSet<SystemRequirements> SystemRequirements { get; set; }
         public DbSet<Developers> Developers { get; set; }
+        public DbSet<GameDeveloper> GameDevelopers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<GameDeveloper>()
+            .HasOne(gd => gd.Game)
+            .WithMany(g => g.GameDevelopers)
+            .HasForeignKey(gd => gd.GameId);
+
+            modelBuilder.Entity<GameDeveloper>()
+                .HasOne(gd => gd.Developers)
+                .WithMany(d => d.GameDevelopers)
+                .HasForeignKey(gd => gd.DeveloperId);
         }
     }
 }
