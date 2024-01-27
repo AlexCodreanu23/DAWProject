@@ -15,34 +15,34 @@ namespace GameApplication.Repositories
             _context = context;
         }
 
-        public async Task<SystemRequirements> GetByIdAsync(int id)
+        public async Task<SystemRequirement> GetByIdAsync(int id)
         {
-            return await _context.Set<SystemRequirements>().FindAsync(id);
+            return await _context.Set<SystemRequirement>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<SystemRequirements>> GetAllAsync()
+        public async Task<IEnumerable<SystemRequirement>> GetAllAsync()
         {
-            return await _context.Set<SystemRequirements>().ToListAsync();
+            return await _context.Set<SystemRequirement>().ToListAsync();
         }
 
-        public async Task AddAsync(SystemRequirements systemRequirements)
+        public async Task AddAsync(SystemRequirement systemRequirements)
         {
-            await _context.Set<SystemRequirements>().AddAsync(systemRequirements);
+            await _context.Set<SystemRequirement>().AddAsync(systemRequirements);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(SystemRequirements systemRequirements)
+        public async Task UpdateAsync(SystemRequirement systemRequirements)
         {
-            _context.Set<SystemRequirements>().Update(systemRequirements);
+            _context.Set<SystemRequirement>().Update(systemRequirements);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var systemRequirements = await _context.Set<SystemRequirements>().FindAsync(id);
+            var systemRequirements = await _context.Set<SystemRequirement>().FindAsync(id);
             if (systemRequirements != null)
             {
-                _context.Set<SystemRequirements>().Remove(systemRequirements);
+                _context.Set<SystemRequirement>().Remove(systemRequirements);
                 await _context.SaveChangesAsync();
             }
         }

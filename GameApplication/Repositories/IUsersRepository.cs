@@ -6,10 +6,10 @@ namespace GameApplication.Repositories
 {
     public interface IUsersRepository
     {
-        Task<Users> GetByIdAsync(int id);
-        Task<IEnumerable<Users>> GetAllAsync();
-        Task AddAsync(Users user);
-        Task UpdateAsync(Users user);
+        Task<User> GetByIdAsync(int id);
+        Task<IEnumerable<User>> GetAllAsync();
+        Task AddAsync(User user);
+        Task UpdateAsync(User user);
         Task DeleteAsync(int id);
     }
 }

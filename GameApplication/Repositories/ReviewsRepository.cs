@@ -15,34 +15,34 @@ namespace GameApplication.Repositories
             _context = context;
         }
 
-        public async Task<Reviews> GetByIdAsync(int id)
+        public async Task<Review> GetByIdAsync(int id)
         {
-            return await _context.Set<Reviews>().FindAsync(id);
+            return await _context.Set<Review>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<Reviews>> GetAllAsync()
+        public async Task<IEnumerable<Review>> GetAllAsync()
         {
-            return await _context.Set<Reviews>().ToListAsync();
+            return await _context.Set<Review>().ToListAsync();
         }
 
-        public async Task AddAsync(Reviews reviews)
+        public async Task AddAsync(Review reviews)
         {
-            await _context.Set<Reviews>().AddAsync(reviews);
+            await _context.Set<Review>().AddAsync(reviews);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Reviews reviews)
+        public async Task UpdateAsync(Review reviews)
         {
-            _context.Set<Reviews>().Update(reviews);
+            _context.Set<Review>().Update(reviews);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var reviews = await _context.Set<Reviews>().FindAsync(id);
+            var reviews = await _context.Set<Review>().FindAsync(id);
             if (reviews != null)
             {
-                _context.Set<Reviews>().Remove(reviews);
+                _context.Set<Review>().Remove(reviews);
                 await _context.SaveChangesAsync();
             }
         }

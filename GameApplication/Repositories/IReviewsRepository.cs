@@ -6,10 +6,10 @@ namespace GameApplication.Repositories
 {
     public interface IReviewsRepository
     {
-        Task<Reviews> GetByIdAsync(int id);
-        Task<IEnumerable<Reviews>> GetAllAsync();
-        Task AddAsync(Reviews review);
-        Task UpdateAsync(Reviews review);
+        Task<Review> GetByIdAsync(int id);
+        Task<IEnumerable<Review>> GetAllAsync();
+        Task AddAsync(Review review);
+        Task UpdateAsync(Review review);
         Task DeleteAsync(int id);
     }
 }

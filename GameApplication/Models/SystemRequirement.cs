@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameApplication.Models
 {
-    public class SystemRequirements
+    public class SystemRequirement
     {
         [Key]
         public int RequirementsId { get; set; }
@@ -33,7 +33,7 @@ namespace GameApplication.Models
 
 
 
-        public SystemRequirements()
+        public SystemRequirement()
         {
 
         }

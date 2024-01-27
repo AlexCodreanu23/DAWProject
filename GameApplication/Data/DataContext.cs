@@ -10,11 +10,11 @@ namespace GameApplication.Data
         {
         }
 
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
-        public DbSet<Reviews> Reviews { get; set; }
-        public DbSet<SystemRequirements> SystemRequirements { get; set; }
-        public DbSet<Developers> Developers { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<SystemRequirement> SystemRequirements { get; set; }
+        public DbSet<Developer> Developers { get; set; }
         public DbSet<GameDeveloper> GameDevelopers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

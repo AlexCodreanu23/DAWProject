@@ -22,14 +22,14 @@ namespace GameApplication.Controllers
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Users>> GetUser(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
             var users = await _context.Users.FindAsync(id);
 
@@ -43,7 +43,7 @@ namespace GameApplication.Controllers
 
         // POST: api/Users
         [HttpPost]
-        public async Task<ActionResult<Users>> PostUser(Users users)
+        public async Task<ActionResult<User>> PostUser(User users)
         {
             _context.Users.Add(users);
             await _context.SaveChangesAsync();
@@ -53,7 +53,7 @@ namespace GameApplication.Controllers
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, Users users)
+        public async Task<IActionResult> PutUser(int id, User users)
         {
             if (id != users.UserId)
             {

@@ -22,14 +22,14 @@ namespace GameApplication.Controllers
 
         // GET: api/Developers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Developers>>> GetDevelopers()
+        public async Task<ActionResult<IEnumerable<Developer>>> GetDevelopers()
         {
             return await _context.Developers.ToListAsync();
         }
 
         // GET: api/Developers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Developers>> GetDeveloper(int id)
+        public async Task<ActionResult<Developer>> GetDeveloper(int id)
         {
             var developer = await _context.Developers.FindAsync(id);
 
@@ -43,7 +43,7 @@ namespace GameApplication.Controllers
 
         // POST: api/Developers
         [HttpPost]
-        public async Task<ActionResult<Developers>> PostDeveloper(Developers developer)
+        public async Task<ActionResult<Developer>> PostDeveloper(Developer developer)
         {
             _context.Developers.Add(developer);
             await _context.SaveChangesAsync();
@@ -53,7 +53,7 @@ namespace GameApplication.Controllers
 
         // PUT: api/Developers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDeveloper(int id, Developers developer)
+        public async Task<IActionResult> PutDeveloper(int id, Developer developer)
         {
             if (id != developer.DeveloperId)
             {

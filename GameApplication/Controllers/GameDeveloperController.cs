@@ -57,7 +57,7 @@ public class GameDeveloperController : ControllerBase
 
     // GET: api/GameDeveloper/Developers
     [HttpGet("Developers/{gameId}")]
-    public async Task<ActionResult<IEnumerable<Developers>>> GetDevelopersByGame(int gameId)
+    public async Task<ActionResult<IEnumerable<Developer>>> GetDevelopersByGame(int gameId)
     {
         return await _context.GameDevelopers
             .Where(gd => gd.GameId == gameId)

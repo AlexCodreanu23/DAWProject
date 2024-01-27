@@ -6,10 +6,10 @@ namespace GameApplication.Repositories
 {
     public interface IDevelopersRepository
     {
-        Task<Developers> GetByIdAsync(int id);
-        Task<IEnumerable<Developers>> GetAllAsync();
-        Task AddAsync(Developers developer);
-        Task UpdateAsync(Developers developer);
+        Task<Developer> GetByIdAsync(int id);
+        Task<IEnumerable<Developer>> GetAllAsync();
+        Task AddAsync(Developer developer);
+        Task UpdateAsync(Developer developer);
         Task DeleteAsync(int id);
     }
 }

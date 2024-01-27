@@ -15,34 +15,34 @@ namespace GameApplication.Repositories
             _context = context;
         }
 
-        public async Task<Developers> GetByIdAsync(int id)
+        public async Task<Developer> GetByIdAsync(int id)
         {
-            return await _context.Set<Developers>().FindAsync(id);
+            return await _context.Set<Developer>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<Developers>> GetAllAsync()
+        public async Task<IEnumerable<Developer>> GetAllAsync()
         {
-            return await _context.Set<Developers>().ToListAsync();
+            return await _context.Set<Developer>().ToListAsync();
         }
 
-        public async Task AddAsync(Developers developer)
+        public async Task AddAsync(Developer developer)
         {
-            await _context.Set<Developers>().AddAsync(developer);
+            await _context.Set<Developer>().AddAsync(developer);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Developers developer)
+        public async Task UpdateAsync(Developer developer)
         {
-            _context.Set<Developers>().Update(developer);
+            _context.Set<Developer>().Update(developer);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var developer = await _context.Set<Developers>().FindAsync(id);
+            var developer = await _context.Set<Developer>().FindAsync(id);
             if (developer != null)
             {
-                _context.Set<Developers>().Remove(developer);
+                _context.Set<Developer>().Remove(developer);
                 await _context.SaveChangesAsync();
             }
         }

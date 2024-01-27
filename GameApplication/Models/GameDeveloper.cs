@@ -12,7 +12,7 @@ namespace GameApplication.Models
         public Game Game { get; set; }
 
         public int DeveloperId { get; set; }
-        public Developers Developers { get; set; }
+        public Developer Developers { get; set; }
 
     }
 }

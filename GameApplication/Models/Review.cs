@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameApplication.Models
 {
-    public class Reviews
+    public class Review
     {
         [Key]
         public int ReviewId { get; set; }
@@ -23,7 +23,7 @@ namespace GameApplication.Models
         [ForeignKey("Users")]
 
         public int UserId { get; set; }
-        public virtual Users Users { get; set; }
+        public virtual User Users { get; set; }
 
         public int rating { get; set; }
         public DateTime ReviewDate { get; set; }
@@ -32,7 +32,7 @@ namespace GameApplication.Models
         [StringLength(5000)]
         public string ReviewText { get; set; }
 
-        public Reviews()
+        public Review()
         {
 
         }

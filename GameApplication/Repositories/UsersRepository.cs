@@ -15,34 +15,34 @@ namespace GameApplication.Repositories
             _context = context;
         }
 
-        public async Task<Users> GetByIdAsync(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
-            return await _context.Set<Users>().FindAsync(id);
+            return await _context.Set<User>().FindAsync(id);
         }
 
-        public async Task<IEnumerable<Users>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _context.Set<Users>().ToListAsync();
+            return await _context.Set<User>().ToListAsync();
         }
 
-        public async Task AddAsync(Users user)
+        public async Task AddAsync(User user)
         {
-            await _context.Set<Users>().AddAsync(user);
+            await _context.Set<User>().AddAsync(user);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Users user)
+        public async Task UpdateAsync(User user)
         {
-            _context.Set<Users>().Update(user);
+            _context.Set<User>().Update(user);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
-            var user = await _context.Set<Users>().FindAsync(id);
+            var user = await _context.Set<User>().FindAsync(id);
             if (user != null)
             {
-                _context.Set<Users>().Remove(user);
+                _context.Set<User>().Remove(user);
                 await _context.SaveChangesAsync();
             }
         }

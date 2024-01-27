@@ -22,14 +22,14 @@ namespace GameApplication.Controllers
 
         // GET: api/SystemRequirements
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SystemRequirements>>> GetSystemRequirements()
+        public async Task<ActionResult<IEnumerable<SystemRequirement>>> GetSystemRequirements()
         {
             return await _context.SystemRequirements.Include(s => s.Game).ToListAsync();
         }
 
         // GET: api/SystemRequirements/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<SystemRequirements>> GetSystemRequirement(int id)
+        public async Task<ActionResult<SystemRequirement>> GetSystemRequirement(int id)
         {
             var systemRequirements = await _context.SystemRequirements
                 .Include(s => s.Game)
@@ -45,7 +45,7 @@ namespace GameApplication.Controllers
 
         // POST: api/SystemRequirements
         [HttpPost]
-        public async Task<ActionResult<SystemRequirements>> PostSystemRequirement(SystemRequirements systemRequirements)
+        public async Task<ActionResult<SystemRequirement>> PostSystemRequirement(SystemRequirement systemRequirements)
         {
             _context.SystemRequirements.Add(systemRequirements);
             await _context.SaveChangesAsync();
@@ -55,7 +55,7 @@ namespace GameApplication.Controllers
 
         // PUT: api/SystemRequirements/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSystemRequirement(int id, SystemRequirements systemRequirements)
+        public async Task<IActionResult> PutSystemRequirement(int id, SystemRequirement systemRequirements)
         {
             if (id != systemRequirements.RequirementsId)
             {

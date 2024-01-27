@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameApplication.Models
 {
-    public class Users
+    public class User
     {
         [Key]
         public int UserId { get; set; }
@@ -32,7 +32,7 @@ namespace GameApplication.Models
 
         public string Role { get; set; }
 
-        public Users()
+        public User()
         {
 
         }

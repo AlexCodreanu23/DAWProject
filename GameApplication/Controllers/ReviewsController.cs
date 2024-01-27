@@ -22,7 +22,7 @@ namespace GameApplication.Controllers
 
         // GET: api/Reviews
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reviews>>> GetReviews()
+        public async Task<ActionResult<IEnumerable<Review>>> GetReviews()
         {
             return await _context.Reviews
                 .Include(r => r.Game)
@@ -32,7 +32,7 @@ namespace GameApplication.Controllers
 
         // GET: api/Reviews/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Reviews>> GetReview(int id)
+        public async Task<ActionResult<Review>> GetReview(int id)
         {
             var review = await _context.Reviews
                 .Include(r => r.Game)
@@ -49,7 +49,7 @@ namespace GameApplication.Controllers
 
         // POST: api/Reviews
         [HttpPost]
-        public async Task<ActionResult<Reviews>> PostReview(Reviews review)
+        public async Task<ActionResult<Review>> PostReview(Review review)
         {
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
@@ -59,7 +59,7 @@ namespace GameApplication.Controllers
 
         // PUT: api/Reviews/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReview(int id, Reviews review)
+        public async Task<IActionResult> PutReview(int id, Review review)
         {
             if (id != review.ReviewId)
             {

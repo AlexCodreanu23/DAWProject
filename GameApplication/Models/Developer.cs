@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameApplication.Models
 {
-    public class Developers
+    public class Developer
     {
         [Key]
         public int DeveloperId { get; set; }
@@ -24,7 +24,7 @@ namespace GameApplication.Models
 
         public ICollection<GameDeveloper> GameDevelopers { get; set; }
 
-        public Developers()
+        public Developer()
         {
 
         }
