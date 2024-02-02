@@ -21,14 +21,13 @@ namespace GameApplication.Controllers
             _context = context;
         }
 
-        // GET: api/Games
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Game>>> GetGames()
         {
             return await _context.Games.ToListAsync();
         }
 
-        // GET: api/Games/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> GetGame(int id)
         {
@@ -42,7 +41,6 @@ namespace GameApplication.Controllers
             return game;
         }
 
-        // POST: api/Games
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Game>> PostGame(Game game)
@@ -53,7 +51,6 @@ namespace GameApplication.Controllers
             return CreatedAtAction(nameof(GetGame), new { id = game.GameId }, game);
         }
 
-        // PUT: api/Games/5
         [HttpPut("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutGame(int id, Game game)
@@ -84,7 +81,6 @@ namespace GameApplication.Controllers
             return NoContent();
         }
 
-        // DELETE: api/Games/5
         [HttpDelete("{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteGame(int id)

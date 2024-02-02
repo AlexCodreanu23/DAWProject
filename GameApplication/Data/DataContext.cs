@@ -1,9 +1,11 @@
-﻿using GameApplication.Models;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using GameApplication.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace GameApplication.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : IdentityDbContext<IdentityUser>
     {
         public DataContext(DbContextOptions<DataContext> options)
             : base(options)
