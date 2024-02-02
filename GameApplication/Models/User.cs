@@ -32,6 +32,8 @@ namespace GameApplication.Models
 
         public string Role { get; set; }
 
+        public ICollection<Review> Reviews { get; set; }
+
         public User()
         {
 

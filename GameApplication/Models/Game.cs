@@ -14,9 +14,10 @@ namespace GameApplication.Models
         public decimal Price { get; set; }
 
         public DateTime ReleaseDate { get; set; }
-
         public ICollection<GameDeveloper> GameDevelopers { get; set; }
+        public ICollection<Review> Reviews { get; set; }
 
+        public SystemRequirement SystemRequirements { get; set; }
         public Game()
         {
 

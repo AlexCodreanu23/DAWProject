@@ -101,6 +101,51 @@ namespace GameApplication.Controllers
             return NoContent();
         }
 
+        [HttpGet("WithMoreThanFourReviews")]
+        public async Task<ActionResult<IEnumerable<string>>> GetGamesWithMoreThanFourReviews()
+        {
+            var gamesWithMoreThanFourReviews = await _context.Games
+                .Where(g => g.Reviews.Count > 4) 
+                .Select(g => g.Title) 
+                .ToListAsync();
+            return gamesWithMoreThanFourReviews;
+        }
+
+        [HttpGet("WithSystemRequirements")]
+        public async Task<ActionResult<IEnumerable<Game>>> GetGamesWithSR()
+        {
+            var gamesWithSystemRequirements = await _context.Games
+                .Include(g => g.SystemRequirements)
+                .ToListAsync();
+            return gamesWithSystemRequirements;
+        }
+
+        [HttpGet("DeveloperGameCounts")]
+        public async Task<ActionResult<IEnumerable<DeveloperGameCount>>> GetDeveloperGameCounts()
+        {
+            var developerGameCounts = await _context.GameDevelopers
+                .Join(_context.Developers,
+                      gameDeveloper => gameDeveloper.DeveloperId,
+                      developer => developer.DeveloperId,
+                      (gameDeveloper, developer) => new { gameDeveloper, developer })
+                .GroupBy(joinResult => joinResult.developer)
+                .Select(group => new DeveloperGameCount
+                {
+                    DeveloperName = group.Key.Name,
+                    GameCount = group.Count()
+                })
+                .ToListAsync();
+
+            return developerGameCounts;
+        }
+
+        public class DeveloperGameCount
+        {
+            public string DeveloperName { get; set; }
+            public int GameCount { get; set; }
+        }
+
+
         private bool GameExists(int id)
         {
             return _context.Games.Any(e => e.GameId == id);
