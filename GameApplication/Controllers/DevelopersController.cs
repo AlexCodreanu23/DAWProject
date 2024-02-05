@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using GameApplication.Data;
 using GameApplication.Models;
+using GameApplication.Services;
 
 namespace GameApplication.Controllers
 {
